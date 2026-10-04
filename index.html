@@ -6,6 +6,9 @@
 <meta name="robots" content="noindex,nofollow">
 <meta name="referrer" content="no-referrer">
 <title>Ulema Ravi Detay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* Giriş sayfası: sitenin şifreli kopyasını açar. Şifre çözme yalnız tarayıcıda yapılır. */
 :root {
@@ -52,30 +55,167 @@ button { padding: 13px; }
 }
 :root[data-theme="dark"] { color-scheme: dark; --bg: #101b17; --paper: #17261f; --ink: #e5eee8; --ink-2: #bdcbc2; --line: #35463c; --accent: #336c50; --accent-2: #408362; --focus: #edcf82; }
 :root[data-theme="dark"] h1 { color: #b6ddc4; }
-/* Ayarlar: şifre değiştirme ve (Admin için) kullanıcı yönetimi. Değişiklik kasa.json'a GitHub API ile yazılır. */
-#ayarlar { width: min(560px, calc(100% - 32px)); max-height: calc(100% - 32px); padding: 0; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-top: 4px solid #c59b27; border-radius: 12px; box-shadow: var(--shadow); }
-#ayarlar::backdrop { background: rgba(0,0,0,.45); }
-#ayarlar .ic { padding: 24px 24px 20px; }
-#ayarlar h2 { font: 600 22px/1.3 Georgia, serif; color: var(--accent); margin: 0 0 4px; }
-#ayarlar h3 { font-size: 14px; letter-spacing: .04em; text-transform: uppercase; margin: 26px 0 4px; padding-top: 18px; border-top: 1px solid var(--line); }
-#ayarlar .aciklama { color: var(--ink-2); font-size: 13px; margin: 4px 0 0; }
-#ayarlar button { width: auto; margin-top: 14px; padding: 9px 16px; }
-#ayarlar button.ikincil { color: var(--ink); background: transparent; border: 1px solid var(--line); }
-#ayarlar button.ikincil:hover { background: var(--bg); }
-#ayarlar button.kucuk { margin: 0; padding: 4px 10px; font-size: 13px; }
-#ayarlar .satir { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-#ayarlar .kapat { position: absolute; top: 12px; right: 12px; margin: 0; }
-#ayarlar ul { list-style: none; margin: 10px 0 0; padding: 0; border: 1px solid var(--line); border-radius: 8px; }
-#ayarlar li { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 8px 12px; }
-#ayarlar li + li { border-top: 1px solid var(--line); }
-#ayarlar .etiket { font-size: 12px; color: var(--ink-2); }
-#ayarlar .onay { display: flex; gap: 8px; align-items: center; font-weight: 400; }
-#ayarlar .onay input { width: auto; }
-#ayarlar .mesaj { min-height: 20px; margin: 10px 0 0; font-size: 13.5px; color: var(--ink-2); }
-#ayarlar .mesaj.hata { color: var(--bad); }
-#ayarlar .mesaj.tamam { color: var(--accent); font-weight: 600; }
-:root[data-theme="dark"] #ayarlar h2 { color: #b6ddc4; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #ayarlar h2 { color: #b6ddc4; } }
+/* ---------- Ayarlar penceresi ----------
+   Sitenin yeşil / altın dili: Playfair Display başlıklar, Plus Jakarta Sans metin.
+   Değişiklikler kasa.json'a GitHub API ile yazılır (bkz. betikteki kasaDegistir). */
+:root {
+  --ay-zemin: #f6f8f4; --ay-yan: #f0f4ef; --ay-kart: #fff; --ay-cizgi: #dce5df; --ay-soluk: #66706a;
+  --ay-vurgu: #1b4332; --ay-vurgu-2: #295a44; --ay-vurgu-zemin: #e6efe9; --ay-baslik: #012d1d;
+  --ay-altin: #775a00; --ay-altin-cizgi: #c59b27; --ay-altin-zemin: #fff5dc;
+  --ay-iyi: #235c40; --ay-iyi-zemin: #e4f3e9; --ay-kotu: #a33a3a; --ay-kotu-zemin: #fbe8e6;
+  --ay-golge: 0 24px 60px rgba(10, 30, 20, .22), 0 2px 8px rgba(10, 30, 20, .08);
+  --ay-yazi: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+  --ay-baslik-yazi: "Playfair Display", Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ay-zemin: #101b17; --ay-yan: #132019; --ay-kart: #17261f; --ay-cizgi: #35463c; --ay-soluk: #a2b4a7;
+    --ay-vurgu: #336c50; --ay-vurgu-2: #408362; --ay-vurgu-zemin: #244233; --ay-baslik: #b6ddc4;
+    --ay-altin: #edcf82; --ay-altin-zemin: #3b3420;
+    --ay-iyi: #b6ddc4; --ay-iyi-zemin: #244233; --ay-kotu: #f0a0a0; --ay-kotu-zemin: #3a1f1f;
+    --ay-golge: 0 24px 60px rgba(0, 0, 0, .55);
+  }
+}
+:root[data-theme="dark"] {
+  --ay-zemin: #101b17; --ay-yan: #132019; --ay-kart: #17261f; --ay-cizgi: #35463c; --ay-soluk: #a2b4a7;
+  --ay-vurgu: #336c50; --ay-vurgu-2: #408362; --ay-vurgu-zemin: #244233; --ay-baslik: #b6ddc4;
+  --ay-altin: #edcf82; --ay-altin-zemin: #3b3420;
+  --ay-iyi: #b6ddc4; --ay-iyi-zemin: #244233; --ay-kotu: #f0a0a0; --ay-kotu-zemin: #3a1f1f;
+  --ay-golge: 0 24px 60px rgba(0, 0, 0, .55);
+}
+#ayarlar { width: min(880px, calc(100% - 32px)); height: min(640px, calc(100% - 32px)); max-width: none; max-height: none; padding: 0; overflow: hidden;
+  color: var(--ink); background: var(--ay-zemin); border: 1px solid var(--ay-cizgi); border-radius: 16px; box-shadow: var(--ay-golge); font: 14px/1.6 var(--ay-yazi); }
+#ayarlar[open] { animation: ay-gir .18s ease-out; }
+@keyframes ay-gir { from { opacity: 0; transform: translateY(8px) scale(.985); } }
+#ayarlar::backdrop { background: rgba(8, 20, 14, .5); backdrop-filter: blur(3px); }
+#ayarlar * { box-sizing: border-box; }
+#ayarlar [hidden] { display: none !important; }
+#ayarlar button, #ayarlar input { font-family: inherit; }
+.ay-kabuk { display: grid; grid-template-columns: 250px minmax(0, 1fr); height: 100%; }
+
+/* Kenar çubuğu */
+.ay-yan { display: flex; flex-direction: column; gap: 22px; padding: 26px 18px 20px; background: var(--ay-yan); border-right: 1px solid var(--ay-cizgi); border-top: 4px solid var(--ay-altin-cizgi); }
+.ay-profil { display: flex; align-items: center; gap: 12px; padding: 0 6px; }
+.ay-avatar { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--ay-vurgu); color: #fff;
+  font: 600 18px/1 var(--ay-baslik-yazi); box-shadow: inset 0 0 0 2px rgba(255,255,255,.18), 0 0 0 2px var(--ay-altin-cizgi); }
+.ay-avatar.kucuk { width: 34px; height: 34px; font-size: 14px; box-shadow: none; background: var(--ay-vurgu-zemin); color: var(--ay-baslik); }
+.ay-avatar.kucuk.yonetici { background: var(--ay-altin-zemin); color: var(--ay-altin); }
+.ay-profil strong { display: block; font-size: 15px; line-height: 1.3; overflow-wrap: anywhere; }
+.ay-rozet { display: inline-block; margin-top: 3px; padding: 2px 8px; border-radius: 999px; font-size: 10.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  background: var(--ay-vurgu-zemin); color: var(--ay-baslik); }
+.ay-rozet.yonetici { background: var(--ay-altin-zemin); color: var(--ay-altin); }
+.ay-rozet.siz { background: transparent; border: 1px solid var(--ay-cizgi); color: var(--ay-soluk); }
+.ay-sekmeler { display: flex; flex-direction: column; gap: 4px; }
+#ayarlar .ay-sekme { all: unset; box-sizing: border-box; display: flex; align-items: center; gap: 11px; width: 100%; padding: 10px 12px; border-radius: 9px; cursor: pointer;
+  color: var(--ink-2); font-size: 13.5px; font-weight: 600; transition: background .15s, color .15s; }
+#ayarlar .ay-sekme:hover { background: color-mix(in srgb, var(--ay-vurgu-zemin) 60%, transparent); color: var(--ink); }
+#ayarlar .ay-sekme:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+#ayarlar .ay-sekme[aria-selected="true"] { background: var(--ay-kart); color: var(--ay-baslik); box-shadow: 0 1px 3px rgba(0,0,0,.06), inset 3px 0 0 var(--ay-altin-cizgi); }
+.ay-sekme svg { flex: none; width: 18px; height: 18px; }
+.ay-sekme .ay-sayi { margin-left: auto; min-width: 22px; padding: 0 7px; border-radius: 999px; background: var(--ay-vurgu-zemin); color: var(--ay-baslik); font-size: 11.5px; text-align: center; }
+.ay-nokta { margin-left: auto; width: 9px; height: 9px; border-radius: 50%; background: var(--ay-cizgi); }
+.ay-nokta.bagli { background: #3a9a68; box-shadow: 0 0 0 3px color-mix(in srgb, #3a9a68 25%, transparent); }
+.ay-guven { margin: auto 6px 0; display: flex; gap: 9px; font-size: 12px; line-height: 1.55; color: var(--ay-soluk); }
+.ay-guven svg { flex: none; width: 16px; height: 16px; margin-top: 2px; color: var(--ay-altin); }
+
+/* Gövde */
+.ay-govde { display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+.ay-ust { position: relative; padding: 28px 64px 18px 32px; border-bottom: 1px solid var(--ay-cizgi); }
+.ay-etiket { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: 1.3px; color: var(--ay-altin); text-transform: uppercase; }
+.ay-ust h2 { margin: 4px 0 2px; font: 600 26px/1.25 var(--ay-baslik-yazi); color: var(--ay-baslik); letter-spacing: -.01em; }
+.ay-ust p { margin: 0; color: var(--ay-soluk); font-size: 13.5px; }
+#ayarlar .ay-kapat { all: unset; position: absolute; top: 20px; right: 20px; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; color: var(--ay-soluk); }
+#ayarlar .ay-kapat:hover { background: var(--ay-vurgu-zemin); color: var(--ink); }
+#ayarlar .ay-kapat:focus-visible { outline: 2px solid var(--focus); }
+.ay-icerik { flex: 1; overflow-y: auto; padding: 24px 32px 28px; }
+.ay-panel { display: grid; gap: 18px; }
+.ay-kart { background: var(--ay-kart); border: 1px solid var(--ay-cizgi); border-radius: 12px; padding: 22px 24px; }
+.ay-kart h3 { margin: 0 0 4px; font: 600 17px/1.35 var(--ay-baslik-yazi); color: var(--ay-baslik); }
+.ay-kart > p.ay-aciklama, .ay-aciklama { margin: 0 0 16px; color: var(--ay-soluk); font-size: 13px; }
+.ay-izgara { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+.ay-izgara .tam { grid-column: 1 / -1; }
+#ayarlar label { display: block; margin: 12px 0 6px; font-size: 12px; font-weight: 700; letter-spacing: .02em; color: var(--ink-2); }
+#ayarlar input[type="text"], #ayarlar input[type="password"] { width: 100%; margin: 0; padding: 11px 13px; font-size: 14px; color: var(--ink); background: var(--ay-zemin);
+  border: 1px solid var(--ay-cizgi); border-radius: 8px; transition: border-color .15s, box-shadow .15s; }
+#ayarlar input:focus { outline: none; border-color: var(--ay-vurgu); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ay-vurgu) 22%, transparent); }
+.ay-alan { position: relative; }
+.ay-alan input { padding-right: 70px !important; }
+#ayarlar .ay-goster { all: unset; position: absolute; right: 6px; top: 50%; transform: translateY(-50%); padding: 4px 9px; border-radius: 6px; cursor: pointer;
+  font-size: 11.5px; font-weight: 700; color: var(--ay-soluk); }
+#ayarlar .ay-goster:hover { background: var(--ay-vurgu-zemin); color: var(--ink); }
+#ayarlar .ay-goster:focus-visible { outline: 2px solid var(--focus); }
+.ay-guc { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 11.5px; color: var(--ay-soluk); min-height: 16px; }
+.ay-guc-cubuk { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; width: 140px; }
+.ay-guc-cubuk i { height: 4px; border-radius: 2px; background: var(--ay-cizgi); }
+.ay-guc[data-d="1"] i:nth-child(-n+1) { background: #c0503f; }
+.ay-guc[data-d="2"] i:nth-child(-n+2) { background: #d39a2c; }
+.ay-guc[data-d="3"] i:nth-child(-n+3) { background: #6aa36f; }
+.ay-guc[data-d="4"] i:nth-child(-n+4) { background: #2f7d55; }
+.ay-eylem { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 20px; }
+#ayarlar .ay-dugme { width: auto; margin: 0; display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px; border: 1px solid transparent;
+  font-size: 13px; font-weight: 700; cursor: pointer; color: #fff; background: var(--ay-vurgu); transition: background .15s, border-color .15s; }
+#ayarlar .ay-dugme:hover { background: var(--ay-vurgu-2); }
+#ayarlar .ay-dugme.ikincil { color: var(--ink); background: transparent; border-color: var(--ay-cizgi); }
+#ayarlar .ay-dugme.ikincil:hover { background: var(--ay-vurgu-zemin); }
+#ayarlar .ay-dugme:disabled { opacity: .55; cursor: progress; }
+#ayarlar .ay-dugme:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+#ayarlar .ay-dugme svg { width: 15px; height: 15px; }
+
+/* Kullanıcı listesi */
+.ay-liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.ay-liste li { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid var(--ay-cizgi); border-radius: 10px; background: var(--ay-zemin); }
+.ay-liste .ad { flex: 1; min-width: 0; font-weight: 600; overflow-wrap: anywhere; }
+#ayarlar .ay-sil { all: unset; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; color: var(--ay-soluk); }
+#ayarlar .ay-sil:hover { background: var(--ay-kotu-zemin); color: var(--ay-kotu); }
+#ayarlar .ay-sil:focus-visible { outline: 2px solid var(--focus); }
+#ayarlar .ay-sil:disabled { opacity: .4; cursor: progress; }
+.ay-sil svg { width: 16px; height: 16px; }
+
+/* Bilgi kutuları ve bağlantı durumu */
+.ay-not { display: flex; gap: 10px; padding: 12px 14px; border-radius: 10px; font-size: 12.5px; line-height: 1.6; background: var(--ay-altin-zemin); color: var(--ink-2); border: 1px solid color-mix(in srgb, var(--ay-altin-cizgi) 35%, transparent); }
+.ay-not svg { flex: none; width: 16px; height: 16px; margin-top: 2px; color: var(--ay-altin); }
+.ay-not strong { color: var(--ink); }
+.ay-durum { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 12px; border: 1px solid var(--ay-cizgi); background: var(--ay-kart); }
+.ay-durum .simge { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--ay-zemin); color: var(--ay-soluk); }
+.ay-durum .simge svg { width: 20px; height: 20px; }
+.ay-durum.bagli .simge { background: var(--ay-iyi-zemin); color: var(--ay-iyi); }
+.ay-durum strong { display: block; font-size: 14px; }
+.ay-durum span { font-size: 12.5px; color: var(--ay-soluk); overflow-wrap: anywhere; }
+.ay-adimlar { margin: 4px 0 0; padding-left: 20px; font-size: 13px; color: var(--ink-2); }
+.ay-adimlar li { margin: 4px 0; }
+.ay-adimlar a { color: var(--ay-baslik); font-weight: 600; }
+.ay-adimlar code, .ay-kart code { padding: 1px 5px; border-radius: 4px; background: var(--ay-vurgu-zemin); font-size: 12px; }
+#ayarlar .ay-onay { display: flex; align-items: center; gap: 9px; margin: 14px 0 0; font-size: 13px; font-weight: 500; letter-spacing: 0; color: var(--ink); cursor: pointer; }
+#ayarlar .ay-onay input { width: 17px; height: 17px; margin: 0; accent-color: var(--ay-vurgu); }
+
+/* Bildirim */
+.ay-bildirim { display: none; align-items: flex-start; gap: 10px; margin: 0 32px 20px; padding: 12px 16px; border-radius: 10px; font-size: 13px; line-height: 1.55;
+  background: var(--ay-vurgu-zemin); color: var(--ink); border: 1px solid var(--ay-cizgi); }
+.ay-bildirim.gorunur { display: flex; animation: ay-gir .18s ease-out; }
+.ay-bildirim.tamam { background: var(--ay-iyi-zemin); border-color: color-mix(in srgb, var(--ay-iyi) 30%, transparent); }
+.ay-bildirim.hata { background: var(--ay-kotu-zemin); color: var(--ay-kotu); border-color: color-mix(in srgb, var(--ay-kotu) 30%, transparent); }
+.ay-bildirim .yukleniyor { flex: none; width: 15px; height: 15px; margin-top: 2px; border: 2px solid var(--ay-cizgi); border-top-color: var(--ay-vurgu); border-radius: 50%; animation: ay-don .8s linear infinite; }
+.ay-bildirim:not(.bekle) .yukleniyor { display: none; }
+@keyframes ay-don { to { transform: rotate(360deg); } }
+#ayarlar .ay-bildirim a, #ayarlar .ay-link { all: unset; cursor: pointer; text-decoration: underline; font-weight: 700; }
+
+@media (max-width: 700px) {
+  #ayarlar { width: 100%; height: 100%; max-width: 100%; max-height: 100%; border-radius: 0; border: 0; }
+  .ay-kabuk { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); }
+  .ay-yan { min-width: 0; }
+  .ay-yan { gap: 14px; padding: 16px 16px 0; border-right: 0; border-bottom: 1px solid var(--ay-cizgi); }
+  .ay-sekmeler { flex-direction: row; overflow-x: auto; gap: 2px; margin: 0 -4px; }
+  #ayarlar .ay-sekme { width: auto; flex: none; padding: 9px 12px; border-radius: 9px 9px 0 0; }
+  #ayarlar .ay-sekme[aria-selected="true"] { box-shadow: inset 0 -3px 0 var(--ay-altin-cizgi); }
+  .ay-guven { display: none; }
+  .ay-ust { padding: 18px 56px 14px 16px; }
+  .ay-ust h2 { font-size: 22px; }
+  .ay-icerik { padding: 16px; }
+  .ay-kart { padding: 18px 16px; }
+  .ay-izgara { grid-template-columns: 1fr; }
+  .ay-bildirim { margin: 0 16px 16px; }
+}
+@media (prefers-reduced-motion: reduce) { #ayarlar[open], .ay-bildirim.gorunur { animation: none; } }
 </style>
 </head>
 <body>
@@ -93,49 +233,146 @@ button { padding: 13px; }
   </form>
 </main>
 <iframe id="site" title="Ulema Ravi Detay"></iframe>
-<dialog id="ayarlar" aria-labelledby="ayarBaslik">
-  <div class="ic">
-    <button class="ikincil kucuk kapat" type="button" id="ayarKapat" aria-label="Kapat">✕</button>
-    <h2 id="ayarBaslik">Ayarlar</h2>
-    <p class="aciklama" id="ayarKim"></p>
+<dialog id="ayarlar" aria-labelledby="ayBaslik">
+  <div class="ay-kabuk">
+    <aside class="ay-yan">
+      <div class="ay-profil">
+        <span class="ay-avatar" id="ayAvatar" aria-hidden="true">A</span>
+        <div><strong id="ayAd">Admin</strong><span class="ay-rozet" id="ayRol">Kullanıcı</span></div>
+      </div>
+      <nav class="ay-sekmeler" role="tablist" aria-label="Ayar bölümleri">
+        <button class="ay-sekme" role="tab" type="button" id="sekme-hesap" data-sekme="hesap" aria-controls="panel-hesap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M10.8 12.2 20 3M17 6l3 3M14.5 8.5l2 2"/></svg>
+          Hesabım
+        </button>
+        <button class="ay-sekme" role="tab" type="button" id="sekme-kullanicilar" data-sekme="kullanicilar" aria-controls="panel-kullanicilar" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.8c2 .6 3.2 2.4 3.5 5.2"/></svg>
+          Kullanıcılar <span class="ay-sayi" id="aySayi">1</span>
+        </button>
+        <button class="ay-sekme" role="tab" type="button" id="sekme-baglanti" data-sekme="baglanti" aria-controls="panel-baglanti">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg>
+          GitHub bağlantısı <span class="ay-nokta" id="ayNokta" title="Bağlı değil"></span>
+        </button>
+      </nav>
+      <p class="ay-guven">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+        <span>Şifreler bu tarayıcıda şifrelenir; hiçbir sunucuya gönderilmez.</span>
+      </p>
+    </aside>
 
-    <form id="sifreForm" autocomplete="off">
-      <h3>Şifremi değiştir</h3>
-      <label for="sMevcut">Mevcut şifre</label>
-      <input id="sMevcut" type="password" autocomplete="current-password" required>
-      <label for="sYeni">Yeni şifre (en az 8 karakter)</label>
-      <input id="sYeni" type="password" autocomplete="new-password" minlength="8" required>
-      <label for="sTekrar">Yeni şifre (tekrar)</label>
-      <input id="sTekrar" type="password" autocomplete="new-password" minlength="8" required>
-      <button type="submit">Şifreyi değiştir</button>
-    </form>
+    <section class="ay-govde">
+      <header class="ay-ust">
+        <span class="ay-etiket">Ayarlar</span>
+        <h2 id="ayBaslik">Hesabım</h2>
+        <p id="ayAlt"></p>
+        <button class="ay-kapat" type="button" id="ayKapat" aria-label="Kapat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </header>
 
-    <section id="yonetim" hidden>
-      <h3>Kullanıcılar</h3>
-      <p class="aciklama">Bütün kullanıcılar aynı içeriği görür. Yalnız Admin kullanıcı ekleyip silebilir.</p>
-      <ul id="kullaniciListe"></ul>
-      <form id="ekleForm" autocomplete="off">
-        <label for="eAd">Yeni kullanıcı adı</label>
-        <input id="eAd" maxlength="40" required>
-        <label for="eSifre">Şifresi (en az 8 karakter)</label>
-        <input id="eSifre" type="password" autocomplete="new-password" minlength="8" required>
-        <label for="eTekrar">Şifresi (tekrar)</label>
-        <input id="eTekrar" type="password" autocomplete="new-password" minlength="8" required>
-        <button type="submit">Kullanıcı ekle</button>
-      </form>
+      <div class="ay-icerik">
+        <!-- Hesabım -->
+        <div class="ay-panel" role="tabpanel" id="panel-hesap" aria-labelledby="sekme-hesap">
+          <form class="ay-kart" id="sifreForm" autocomplete="off">
+            <h3>Şifremi değiştir</h3>
+            <p class="ay-aciklama">Mevcut şifreniz doğrulanır; yeni şifre bir sonraki girişinizden itibaren geçerli olur. Açık oturumunuz kapanmaz.</p>
+            <div class="ay-izgara">
+              <div class="tam">
+                <label for="sMevcut">Mevcut şifre</label>
+                <div class="ay-alan"><input id="sMevcut" type="password" autocomplete="current-password" required><button class="ay-goster" type="button">Göster</button></div>
+              </div>
+              <div>
+                <label for="sYeni">Yeni şifre</label>
+                <div class="ay-alan"><input id="sYeni" type="password" autocomplete="new-password" minlength="8" required><button class="ay-goster" type="button">Göster</button></div>
+                <div class="ay-guc" data-icin="sYeni" data-d="0"><span class="ay-guc-cubuk"><i></i><i></i><i></i><i></i></span><span class="ay-guc-yazi">En az 8 karakter</span></div>
+              </div>
+              <div>
+                <label for="sTekrar">Yeni şifre (tekrar)</label>
+                <div class="ay-alan"><input id="sTekrar" type="password" autocomplete="new-password" minlength="8" required><button class="ay-goster" type="button">Göster</button></div>
+              </div>
+            </div>
+            <div class="ay-eylem"><button class="ay-dugme" type="submit">Şifreyi değiştir</button></div>
+          </form>
+        </div>
+
+        <!-- Kullanıcılar (yalnız Admin) -->
+        <div class="ay-panel" role="tabpanel" id="panel-kullanicilar" aria-labelledby="sekme-kullanicilar" hidden>
+          <div class="ay-kart">
+            <h3>Erişimi olan kişiler</h3>
+            <p class="ay-aciklama">Bütün kullanıcılar aynı içeriği görür. Kullanıcı eklemeyi ve silmeyi yalnız Admin yapabilir.</p>
+            <ul class="ay-liste" id="kullaniciListe"></ul>
+          </div>
+          <form class="ay-kart" id="ekleForm" autocomplete="off">
+            <h3>Yeni kullanıcı ekle</h3>
+            <p class="ay-aciklama">Şifreyi kişiye kendiniz iletin; kişi girişten sonra Ayarlar'dan değiştirebilir.</p>
+            <div class="ay-izgara">
+              <div class="tam">
+                <label for="eAd">Kullanıcı adı</label>
+                <input id="eAd" type="text" maxlength="40" autocomplete="off" spellcheck="false" required>
+              </div>
+              <div>
+                <label for="eSifre">Şifre</label>
+                <div class="ay-alan"><input id="eSifre" type="password" autocomplete="new-password" minlength="8" required><button class="ay-goster" type="button">Göster</button></div>
+                <div class="ay-guc" data-icin="eSifre" data-d="0"><span class="ay-guc-cubuk"><i></i><i></i><i></i><i></i></span><span class="ay-guc-yazi">En az 8 karakter</span></div>
+              </div>
+              <div>
+                <label for="eTekrar">Şifre (tekrar)</label>
+                <div class="ay-alan"><input id="eTekrar" type="password" autocomplete="new-password" minlength="8" required><button class="ay-goster" type="button">Göster</button></div>
+              </div>
+            </div>
+            <div class="ay-eylem">
+              <button class="ay-dugme" type="submit">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                Kullanıcı ekle
+              </button>
+              <button class="ay-dugme ikincil" type="button" id="sifreUret">Güçlü şifre üret</button>
+            </div>
+          </form>
+          <p class="ay-not">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+            <span><strong>Silme hakkında:</strong> silinen kullanıcı bir daha giriş yapamaz. Ancak daha önce indirdiği şifreli kopyayı eski şifresiyle açabilir;
+              bunu da kesmek için bilgisayarda <code>yayinla.py --yeni-anahtar</code> ile veri anahtarı yenilenmelidir.</span>
+          </p>
+        </div>
+
+        <!-- GitHub bağlantısı -->
+        <div class="ay-panel" role="tabpanel" id="panel-baglanti" aria-labelledby="sekme-baglanti" hidden>
+          <div class="ay-durum" id="ayDurum">
+            <span class="simge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg></span>
+            <div><strong id="ayDurumBaslik">Bağlı değil</strong><span id="ayDurumAlt"></span></div>
+          </div>
+          <div class="ay-kart">
+            <h3>Erişim anahtarı</h3>
+            <p class="ay-aciklama">Şifre ve kullanıcı değişiklikleri yayın deposundaki <code>kasa.json</code> dosyasına bu anahtarla kaydedilir.
+              Anahtar yalnız bu tarayıcıda kalır ve yalnız GitHub'a gönderilir.</p>
+            <label for="token">GitHub erişim anahtarı (fine-grained token)</label>
+            <div class="ay-alan"><input id="token" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_…"><button class="ay-goster" type="button">Göster</button></div>
+            <label class="ay-onay"><input id="tokenHatirla" type="checkbox" checked> Bu tarayıcıda hatırla (bir daha sorulmaz)</label>
+            <div class="ay-eylem">
+              <button class="ay-dugme" type="button" id="baglantiSina">Kaydet ve bağlan</button>
+              <button class="ay-dugme ikincil" type="button" id="tokenUnut">Anahtarı unut</button>
+            </div>
+          </div>
+          <div class="ay-kart">
+            <h3>Anahtar nasıl alınır?</h3>
+            <ol class="ay-adimlar">
+              <li><a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">GitHub'da yeni fine-grained token sayfasını</a> açın.</li>
+              <li><em>Repository access</em> → <em>Only select repositories</em> → yalnız <code id="ayDepoAdi">Ulema-Ravi-Detay-Site</code>.</li>
+              <li><em>Permissions</em> → <em>Contents</em> → <strong>Read and write</strong>. Başka izin gerekmez.</li>
+              <li>Oluşan anahtarı yukarıdaki alana yapıştırıp <strong>Kaydet ve bağlan</strong>'a basın.</li>
+            </ol>
+          </div>
+          <div class="ay-kart">
+            <h3>Anahtarsız kullanım</h3>
+            <p class="ay-aciklama">Anahtar girilmezse değişiklik yapıldığında güncel <code>kasa.json</code> indirilir; dosyayı yayın deposuna
+              <em>Add file → Upload files</em> ile yüklemeniz gerekir.</p>
+            <div class="ay-eylem" style="margin-top:0"><button class="ay-dugme ikincil" type="button" id="kasaIndir">Güncel kasa.json'ı indir</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ay-bildirim" id="ayarMesaj" role="status" aria-live="polite"><span class="yukleniyor" aria-hidden="true"></span><span class="metin"></span></div>
     </section>
-
-    <h3>GitHub bağlantısı</h3>
-    <p class="aciklama">Değişiklikler yayın deposundaki <code>kasa.json</code> dosyasına yazılır. Bunun için yalnız bu depoya
-      <em>Contents: Read and write</em> izni olan bir GitHub erişim anahtarı (fine-grained token) gerekir.
-      Anahtar yoksa güncel <code>kasa.json</code> dosyasını indirip depoya elle yükleyebilirsiniz.</p>
-    <label for="token">GitHub erişim anahtarı</label>
-    <input id="token" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_…">
-    <label class="onay"><input id="tokenHatirla" type="checkbox"> Bu tarayıcıda hatırla</label>
-    <div class="satir">
-      <button class="ikincil" type="button" id="kasaIndir">Güncel kasa.json'ı indir</button>
-    </div>
-    <p class="mesaj" id="ayarMesaj" role="status" aria-live="polite"></p>
   </div>
 </dialog>
 <script>
@@ -261,7 +498,7 @@ button { padding: 13px; }
       return r.json().catch(function () { return null; }).then(function (v) {
         if (r.ok) return v;
         var aciklama = r.status === 401 ? 'erişim anahtarı geçersiz ya da süresi dolmuş'
-          : r.status === 403 || r.status === 404 ? 'erişim anahtarının bu depoya yazma izni yok'
+          : r.status === 403 || r.status === 404 ? (yontem === 'GET' ? 'erişim anahtarı bu depoyu göremiyor (Repository access ayarını kontrol edin)' : 'erişim anahtarının bu depoya yazma izni yok (Contents: Read and write gerekli)')
           : r.status === 409 || r.status === 422 ? 'kasa.json bu arada değişti; yeniden deneyin'
           : (v && v.message) || 'bilinmeyen hata';
         throw new Error('GitHub ' + r.status + ': ' + aciklama);
@@ -294,40 +531,101 @@ button { padding: 13px; }
     });
   }
 
-  function ayarMesaj(t, tur) { var m = $('ayarMesaj'); m.textContent = t || ''; m.className = 'mesaj' + (tur ? ' ' + tur : ''); }
+  /* ---------- Ayarlar arayüzü ---------- */
+  var SEKMELER = {
+    hesap: ['Hesabım', 'Şifrenizi buradan değiştirebilirsiniz.'],
+    kullanicilar: ['Kullanıcılar', 'Siteye kimlerin girebileceğini yönetin.'],
+    baglanti: ['GitHub bağlantısı', 'Değişikliklerin yayın deposuna kaydedilmesi için.']
+  };
+  var bildirimZaman = null;
+
+  function bildir(t, tur, eylem) {
+    var m = $('ayarMesaj'), metin = m.querySelector('.metin');
+    clearTimeout(bildirimZaman);
+    metin.textContent = t || '';
+    if (eylem) {
+      var a = document.createElement('button'); a.type = 'button'; a.className = 'ay-link'; a.textContent = eylem.ad;
+      a.addEventListener('click', eylem.yap);
+      metin.appendChild(document.createTextNode(' ')); metin.appendChild(a);
+    }
+    m.className = 'ay-bildirim' + (t ? ' gorunur' : '') + (tur ? ' ' + tur : '');
+    if (tur === 'tamam') bildirimZaman = setTimeout(function () { m.classList.remove('gorunur'); }, 9000);
+  }
+  var baglantiyaGit = { ad: 'Bağlantıyı kur →', yap: function () { sekmeAc('baglanti'); $('token').focus(); } };
   function sonuc(ne) {
     return function (nasil) {
-      ayarMesaj(nasil === 'yazildi'
-        ? ne + ' Değişiklik GitHub\'a kaydedildi; yayın birkaç dakika içinde güncellenir.'
-        : ne + ' Erişim anahtarı girilmediği için güncel kasa.json indirildi; dosyayı yayın deposuna yükleyin (Add file → Upload files).', 'tamam');
+      if (nasil === 'yazildi') bildir(ne + ' GitHub\'a kaydedildi; yayın birkaç dakika içinde güncellenir.', 'tamam');
+      else bildir(ne + ' Erişim anahtarı olmadığı için güncel kasa.json indirildi; dosyayı yayın deposuna yükleyin.', 'tamam', baglantiyaGit);
       kullanicilariGoster();
     };
   }
   function ayarHata(e) {
-    ayarMesaj(e && e.message === 'anahtar' ? 'Kasa yeni bir veri anahtarıyla yayımlanmış; çıkış yapıp yeniden girin.' : (e && e.message) || String(e), 'hata');
+    bildir(e && e.message === 'anahtar' ? 'Kasa yeni bir veri anahtarıyla yayımlanmış; çıkış yapıp yeniden girin.' : (e && e.message) || String(e), 'hata');
   }
-  function mesgul(form, var_) { Array.prototype.forEach.call(form.querySelectorAll('button,input'), function (x) { x.disabled = var_; }); }
+  function mesgul(kap, var_) { Array.prototype.forEach.call(kap.querySelectorAll('button,input'), function (x) { x.disabled = var_; }); }
 
-  function tokenSakla() {
-    try {
-      var t = $('token').value.trim();
-      if ($('tokenHatirla').checked && t) localStorage.setItem(TOKEN, t); else localStorage.removeItem(TOKEN);
-    } catch (e) {}
+  function sekmeAc(ad) {
+    if (ad === 'kullanicilar' && !adminMi()) ad = 'hesap';
+    Object.keys(SEKMELER).forEach(function (s) {
+      var secili = s === ad;
+      $('sekme-' + s).setAttribute('aria-selected', secili ? 'true' : 'false');
+      $('sekme-' + s).tabIndex = secili ? 0 : -1;
+      $('panel-' + s).hidden = !secili;
+    });
+    $('ayBaslik').textContent = SEKMELER[ad][0];
+    $('ayAlt').textContent = SEKMELER[ad][1];
+    try { sessionStorage.setItem('urd.ayarSekme', ad); } catch (e) {}
   }
+
+  // Şifre gücü: uzunluk ve karakter çeşitliliği (0–4).
+  function guc(s) {
+    if (!s) return [0, 'En az 8 karakter'];
+    if (s.length < 8) return [1, 'Çok kısa (' + s.length + '/8)'];
+    var cesit = [/[a-zçğıöşü]/, /[A-ZÇĞİÖŞÜ]/, /\d/, /[^A-Za-z0-9çğıöşüÇĞİÖŞÜ]/].filter(function (r) { return r.test(s); }).length;
+    var d = s.length >= 14 && cesit >= 3 ? 4 : s.length >= 10 && cesit >= 3 ? 3 : cesit >= 2 ? 2 : 1;
+    return [d, ['', 'Zayıf', 'Orta', 'İyi', 'Güçlü'][d]];
+  }
+  function gucGoster(input) {
+    var g = document.querySelector('.ay-guc[data-icin="' + input.id + '"]');
+    if (!g) return;
+    var r = guc(input.value);
+    g.dataset.d = r[0]; g.querySelector('.ay-guc-yazi').textContent = r[1];
+  }
+  function sifreUret() {
+    var harf = 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789', isaret = '-.!?#', s = '';
+    var r = crypto.getRandomValues(new Uint32Array(16));
+    for (var i = 0; i < 14; i++) s += harf[r[i] % harf.length];
+    // Her türden en az bir karakter olsun: 4. ve 9. konuma rakam ve işaret.
+    s = s.slice(0, 4) + '23456789'[r[14] % 8] + s.slice(5, 9) + isaret[r[15] % isaret.length] + s.slice(10);
+    return s;
+  }
+
+  function avatar(ad, yonetici) {
+    var a = document.createElement('span');
+    a.className = 'ay-avatar kucuk' + (yonetici ? ' yonetici' : '');
+    a.setAttribute('aria-hidden', 'true');
+    a.textContent = String(ad).trim().charAt(0).toLocaleUpperCase('tr') || '?';
+    return a;
+  }
+  function rozet(t, sinif) { var r = document.createElement('span'); r.className = 'ay-rozet' + (sinif ? ' ' + sinif : ''); r.textContent = t; return r; }
 
   function kullanicilariGoster() {
-    var ul = $('kullaniciListe');
+    var ul = $('kullaniciListe'), yuvalar = (kasa && kasa.yuvalar) || [];
     ul.textContent = '';
-    (kasa && kasa.yuvalar || []).forEach(function (y) {
+    $('aySayi').textContent = yuvalar.length;
+    yuvalar.forEach(function (y) {
       var li = document.createElement('li'), ad = document.createElement('span');
-      ad.textContent = y.kullanici;
-      if (kucuk(y.kullanici) === kucuk(kullanici)) {
-        var e = document.createElement('span'); e.className = 'etiket'; e.textContent = ' (siz)'; ad.appendChild(e);
-      }
+      var yon = kucuk(y.kullanici) === 'admin', ben = kucuk(y.kullanici) === kucuk(kullanici);
+      ad.className = 'ad'; ad.textContent = y.kullanici;
+      li.appendChild(avatar(y.kullanici, yon));
       li.appendChild(ad);
-      if (kucuk(y.kullanici) !== kucuk(kullanici)) {
+      if (ben) li.appendChild(rozet('Siz', 'siz'));
+      li.appendChild(rozet(yon ? 'Yönetici' : 'Kullanıcı', yon ? 'yonetici' : ''));
+      if (!ben) {
         var sil = document.createElement('button');
-        sil.type = 'button'; sil.className = 'ikincil kucuk'; sil.textContent = 'Sil';
+        sil.type = 'button'; sil.className = 'ay-sil'; sil.title = y.kullanici + ' kullanıcısını sil';
+        sil.setAttribute('aria-label', y.kullanici + ' kullanıcısını sil');
+        sil.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M9 7V4.5h6V7M6.5 7l1 13h9l1-13M10 11v6M14 11v6"/></svg>';
         sil.addEventListener('click', function () { kullaniciSil(y.kullanici, sil); });
         li.appendChild(sil);
       }
@@ -336,40 +634,110 @@ button { padding: 13px; }
   }
 
   function kullaniciSil(ad, dugme) {
-    if (!confirm(ad + ' silinsin mi?\n\nSilinen kullanıcı yeni girişlerde siteyi açamaz. Erişimi tamamen kesmek için ' +
-      'ayrıca bilgisayarda yayinla.py --yeni-anahtar ile veri anahtarını yenileyin.')) return;
+    if (!confirm(ad + ' kullanıcısı silinsin mi?\n\nBu kişi bir daha giriş yapamaz.')) return;
     dugme.disabled = true;
-    ayarMesaj(ad + ' siliniyor…');
+    bildir(ad + ' siliniyor…', 'bekle');
     kasaDegistir(function (k) {
       if (!yuvaBul(k, ad)) throw new Error(ad + ' zaten yok.');
       k.yuvalar = k.yuvalar.filter(function (y) { return kucuk(y.kullanici) !== kucuk(ad); });
     }, ad + ' silindi').then(sonuc(ad + ' silindi.')).catch(function (e) { dugme.disabled = false; ayarHata(e); });
   }
 
-  function ayarlarAc() {
-    var d = $('ayarlar');
-    $('ayarKim').textContent = kullanici + ' olarak giriş yapıldı.';
-    $('yonetim').hidden = !adminMi();
-    try { var t = localStorage.getItem(TOKEN); if (t) { $('token').value = t; $('tokenHatirla').checked = true; } } catch (e) {}
-    ayarMesaj('');
-    kullanicilariGoster();
-    if (typeof d.showModal === 'function') d.showModal(); else d.setAttribute('open', '');
-    // Liste, Pages'teki en güncel kasaya göre yenilenir.
-    kasaGetir().then(kullanicilariGoster, function () {});
+  function tokenSakla() {
+    try {
+      var t = $('token').value.trim();
+      if ($('tokenHatirla').checked && t) localStorage.setItem(TOKEN, t); else localStorage.removeItem(TOKEN);
+    } catch (e) {}
+  }
+  // durum: null (sınanmadı), true (bağlı), false (hata) — ek: açıklama
+  function baglantiDurumu(durum, ek) {
+    var var_ = !!$('token').value.trim();
+    var kutu = $('ayDurum'), nokta = $('ayNokta');
+    kutu.classList.toggle('bagli', durum === true);
+    nokta.classList.toggle('bagli', durum === true);
+    $('ayDurumBaslik').textContent = durum === true ? 'Bağlı' : durum === false ? 'Bağlantı kurulamadı' : var_ ? 'Anahtar girildi, henüz sınanmadı' : 'Bağlı değil';
+    $('ayDurumAlt').textContent = ek || (var_ ? DEPO.sahip + '/' + DEPO.ad : 'Değişiklikler kaydedilmez; kasa.json indirilir.');
+    nokta.title = $('ayDurumBaslik').textContent;
+  }
+  function baglantiSina() {
+    var token = $('token').value.trim();
+    if (!token) { baglantiDurumu(null); return bildir('Önce erişim anahtarını yapıştırın.', 'hata'); }
+    tokenSakla();
+    mesgul($('panel-baglanti'), true);
+    bildir('GitHub\'a bağlanılıyor…', 'bekle');
+    gh('GET', '/contents/kasa.json', null, token).then(function () {
+      baglantiDurumu(true, DEPO.sahip + '/' + DEPO.ad + ' · kasa.json okunabildi');
+      bildir('Anahtar kaydedildi ve bağlantı kuruldu' + ($('tokenHatirla').checked ? '; bu tarayıcıda hatırlanacak.' : ' (yalnız bu oturum için).') + ' Şifre ve kullanıcı değişiklikleri artık doğrudan GitHub\'a kaydedilir.', 'tamam');
+    }).catch(function (e) {
+      baglantiDurumu(false, e.message);
+      ayarHata(e);
+    }).then(function () { mesgul($('panel-baglanti'), false); });
   }
 
-  $('ayarKapat').addEventListener('click', function () { $('ayarlar').close(); });
+  function ayarlarAc() {
+    var d = $('ayarlar'), yon = adminMi();
+    try { var tema = localStorage.getItem('urd.tema'); if (tema) document.documentElement.dataset.theme = tema; else delete document.documentElement.dataset.theme; } catch (e) {}
+    $('ayAd').textContent = kullanici;
+    $('ayAvatar').textContent = kullanici.trim().charAt(0).toLocaleUpperCase('tr');
+    $('ayRol').textContent = yon ? 'Yönetici' : 'Kullanıcı';
+    $('ayRol').className = 'ay-rozet' + (yon ? ' yonetici' : '');
+    $('sekme-kullanicilar').hidden = !yon;
+    $('ayDepoAdi').textContent = DEPO.ad;
+    try { var t = localStorage.getItem(TOKEN); if (t && !$('token').value) $('token').value = t; } catch (e) {}
+    if (!$('ayDurum').classList.contains('bagli')) baglantiDurumu(null);
+    var son = null; try { son = sessionStorage.getItem('urd.ayarSekme'); } catch (e) {}
+    sekmeAc(SEKMELER[son] ? son : 'hesap');
+    bildir('');
+    kullanicilariGoster();
+    if (typeof d.showModal === 'function') d.showModal(); else d.setAttribute('open', '');
+    kasaGetir().then(kullanicilariGoster, function () {});   // liste Pages'teki en güncel kasaya göre yenilenir
+  }
+
+  $('ayKapat').addEventListener('click', function () { $('ayarlar').close(); });
+  $('ayarlar').addEventListener('click', function (ev) { if (ev.target === this) this.close(); });   // dışına tıklayınca kapanır
+  Array.prototype.forEach.call(document.querySelectorAll('.ay-sekme'), function (s) {
+    s.addEventListener('click', function () { sekmeAc(s.dataset.sekme); });
+    s.addEventListener('keydown', function (ev) {
+      if (ev.key !== 'ArrowDown' && ev.key !== 'ArrowUp' && ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft') return;
+      var gorunur = Array.prototype.filter.call(document.querySelectorAll('.ay-sekme'), function (x) { return !x.hidden; });
+      var i = gorunur.indexOf(s) + (ev.key === 'ArrowDown' || ev.key === 'ArrowRight' ? 1 : -1);
+      var y = gorunur[(i + gorunur.length) % gorunur.length];
+      ev.preventDefault(); sekmeAc(y.dataset.sekme); y.focus();
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.ay-goster'), function (b) {
+    b.addEventListener('click', function () {
+      var i = b.previousElementSibling, ac = i.type === 'password';
+      i.type = ac ? 'text' : 'password'; b.textContent = ac ? 'Gizle' : 'Göster';
+    });
+  });
+  ['sYeni', 'eSifre'].forEach(function (id) { $(id).addEventListener('input', function () { gucGoster(this); }); });
+  $('sifreUret').addEventListener('click', function () {
+    var s = sifreUret();
+    ['eSifre', 'eTekrar'].forEach(function (id) {
+      var i = $(id); i.value = s; i.type = 'text'; i.nextElementSibling.textContent = 'Gizle';
+    });
+    gucGoster($('eSifre'));
+    bildir('Şifre üretildi: ' + s + ' — kişiye iletmek için not alın.', '');
+  });
   $('tokenHatirla').addEventListener('change', tokenSakla);
+  $('token').addEventListener('input', function () { baglantiDurumu(null); });
+  $('token').addEventListener('keydown', function (ev) { if (ev.key === 'Enter') { ev.preventDefault(); baglantiSina(); } });
+  $('baglantiSina').addEventListener('click', baglantiSina);
+  $('tokenUnut').addEventListener('click', function () {
+    $('token').value = ''; tokenSakla(); baglantiDurumu(null);
+    bildir('Erişim anahtarı bu tarayıcıdan silindi.', 'tamam');
+  });
   $('kasaIndir').addEventListener('click', function () { kasaGetir().then(kasaIndir).catch(ayarHata); });
 
   $('sifreForm').addEventListener('submit', function (ev) {
     ev.preventDefault();
     var f = this, mevcut = $('sMevcut').value, yeni = $('sYeni').value;
-    if (yeni.length < 8) return ayarMesaj('Yeni şifre en az 8 karakter olmalı.', 'hata');
-    if (yeni !== $('sTekrar').value) return ayarMesaj('Yeni şifreler uyuşmuyor.', 'hata');
-    if (yeni === mevcut) return ayarMesaj('Yeni şifre mevcut şifreyle aynı.', 'hata');
+    if (yeni.length < 8) return bildir('Yeni şifre en az 8 karakter olmalı.', 'hata');
+    if (yeni !== $('sTekrar').value) return bildir('Yeni şifreler uyuşmuyor.', 'hata');
+    if (yeni === mevcut) return bildir('Yeni şifre mevcut şifreyle aynı.', 'hata');
     mesgul(f, true);
-    ayarMesaj('Şifre değiştiriliyor… (birkaç saniye sürebilir)');
+    bildir('Şifre değiştiriliyor… (birkaç saniye sürebilir)', 'bekle');
     kasaDegistir(function (k) {
       var y = yuvaBul(k, kullanici);
       if (!y) throw new Error('Kasada ' + kullanici + ' kullanıcısı bulunamadı.');
@@ -380,24 +748,26 @@ button { padding: 13px; }
         k.yuvalar = k.yuvalar.map(function (x) { return x === y ? yeniYuva : x; });
       });
     }, kullanici + ' şifresi değişti').then(function (nasil) {
-      f.reset(); sonuc('Şifreniz değiştirildi.')(nasil);
+      f.reset(); gucGoster($('sYeni')); sonuc('Şifreniz değiştirildi.')(nasil);
     }).catch(ayarHata).then(function () { mesgul(f, false); });
   });
 
   $('ekleForm').addEventListener('submit', function (ev) {
     ev.preventDefault();
-    if (!adminMi()) return ayarMesaj('Kullanıcı eklemeyi yalnız Admin yapabilir.', 'hata');
+    if (!adminMi()) return bildir('Kullanıcı eklemeyi yalnız Admin yapabilir.', 'hata');
     var f = this, ad = $('eAd').value.trim().replace(/\s+/g, ' '), sifre = $('eSifre').value;
-    if (!ad) return ayarMesaj('Kullanıcı adı boş olamaz.', 'hata');
-    if (sifre.length < 8) return ayarMesaj('Şifre en az 8 karakter olmalı.', 'hata');
-    if (sifre !== $('eTekrar').value) return ayarMesaj('Şifreler uyuşmuyor.', 'hata');
+    if (!ad) return bildir('Kullanıcı adı boş olamaz.', 'hata');
+    if (sifre.length < 8) return bildir('Şifre en az 8 karakter olmalı.', 'hata');
+    if (sifre !== $('eTekrar').value) return bildir('Şifreler uyuşmuyor.', 'hata');
     mesgul(f, true);
-    ayarMesaj(ad + ' ekleniyor… (birkaç saniye sürebilir)');
+    bildir(ad + ' ekleniyor… (birkaç saniye sürebilir)', 'bekle');
     kasaDegistir(function (k) {
       if (yuvaBul(k, ad)) throw new Error(ad + ' adında bir kullanıcı zaten var.');
       return yuvaYap(ad, sifre).then(function (y) { k.yuvalar.push(y); });
     }, ad + ' eklendi').then(function (nasil) {
-      f.reset(); sonuc(ad + ' eklendi.')(nasil);
+      f.reset();
+      ['eSifre', 'eTekrar'].forEach(function (id) { $(id).type = 'password'; $(id).nextElementSibling.textContent = 'Göster'; });
+      gucGoster($('eSifre')); sonuc(ad + ' eklendi.')(nasil);
     }).catch(ayarHata).then(function () { mesgul(f, false); });
   });
 
