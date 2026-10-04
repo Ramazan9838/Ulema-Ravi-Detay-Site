@@ -1,0 +1,21 @@
+{
+ "surum": "b93596a",
+ "guncelleme": "2026-10-04T15:29:07+00:00",
+ "yuvalar": [
+  {
+   "kullanici": "Admin",
+   "salt": "rgk6WuBrSWR0yNA9DedM3g==",
+   "iter": 600000,
+   "w": "9S5f4i0hQhoeDEx2AxQUqrbXG7pDqkr+jiQmAPGOrInsPMeEAd2o9NleAFVDKJgmd0Klaim5hnRpOTAb"
+  }
+ ],
+ "dosyalar": {
+  "site": {
+   "ozet": "6d900ece6378a82c60e8159123bfa3103a7c54bfe9e5c506046fc376ffd704db",
+   "boyut": 25285725,
+   "parcalar": [
+    "veri/site.6d900ece6378.0.bin"
+   ]
+  }
+ }
+}
