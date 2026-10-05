@@ -1,6 +1,6 @@
 {
- "surum": "6c7c777",
- "guncelleme": "2026-10-04T15:42:30+00:00",
+ "surum": "b7db9b7",
+ "guncelleme": "2026-10-05T04:39:47+00:00",
  "yuvalar": [
   {
    "kullanici": "Admin",
@@ -11,10 +11,27 @@
  ],
  "dosyalar": {
   "site": {
-   "ozet": "b07305a8d76e6b10323e83c3e8d5b099bf90468bbf3ea0c8d7d8ee2f02db925d",
-   "boyut": 25285998,
+   "ozet": "d1579f42cec0f97aad75200e75e6baeaa58a888e7c1278d4090d5776a84ca2cc",
+   "boyut": 43583310,
    "parcalar": [
-    "veri/site.b07305a8d76e.0.bin"
+    "veri/site.d1579f42cec0.0.bin",
+    "veri/site.d1579f42cec0.1.bin",
+    "veri/site.d1579f42cec0.2.bin",
+    "veri/site.d1579f42cec0.3.bin",
+    "veri/site.d1579f42cec0.4.bin",
+    "veri/site.d1579f42cec0.5.bin",
+    "veri/site.d1579f42cec0.6.bin",
+    "veri/site.d1579f42cec0.7.bin",
+    "veri/site.d1579f42cec0.8.bin",
+    "veri/site.d1579f42cec0.9.bin",
+    "veri/site.d1579f42cec0.10.bin",
+    "veri/site.d1579f42cec0.11.bin",
+    "veri/site.d1579f42cec0.12.bin",
+    "veri/site.d1579f42cec0.13.bin",
+    "veri/site.d1579f42cec0.14.bin",
+    "veri/site.d1579f42cec0.15.bin",
+    "veri/site.d1579f42cec0.16.bin",
+    "veri/site.d1579f42cec0.17.bin"
    ]
   }
  }
