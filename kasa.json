@@ -1,6 +1,6 @@
 {
- "surum": "9b47401",
- "guncelleme": "2026-10-05T05:49:08+00:00",
+ "surum": "6d2e616",
+ "guncelleme": "2026-10-05T15:21:39+00:00",
  "yuvalar": [
   {
    "kullanici": "Admin",
@@ -11,27 +11,27 @@
  ],
  "dosyalar": {
   "site": {
-   "ozet": "c6748e0b1077c1191f1b8bf67d7e6b2a0cb4b1871314a5ed96fee83c2b4f5ddb",
-   "boyut": 43583583,
+   "ozet": "ef52f1a90e78f2e46da17edff3acf94307b17f75b7a006b5f3b51e1b8101b754",
+   "boyut": 43627823,
    "parcalar": [
-    "veri/site.c6748e0b1077.0.bin",
-    "veri/site.c6748e0b1077.1.bin",
-    "veri/site.c6748e0b1077.2.bin",
-    "veri/site.c6748e0b1077.3.bin",
-    "veri/site.c6748e0b1077.4.bin",
-    "veri/site.c6748e0b1077.5.bin",
-    "veri/site.c6748e0b1077.6.bin",
-    "veri/site.c6748e0b1077.7.bin",
-    "veri/site.c6748e0b1077.8.bin",
-    "veri/site.c6748e0b1077.9.bin",
-    "veri/site.c6748e0b1077.10.bin",
-    "veri/site.c6748e0b1077.11.bin",
-    "veri/site.c6748e0b1077.12.bin",
-    "veri/site.c6748e0b1077.13.bin",
-    "veri/site.c6748e0b1077.14.bin",
-    "veri/site.c6748e0b1077.15.bin",
-    "veri/site.c6748e0b1077.16.bin",
-    "veri/site.c6748e0b1077.17.bin"
+    "veri/site.ef52f1a90e78.0.bin",
+    "veri/site.ef52f1a90e78.1.bin",
+    "veri/site.ef52f1a90e78.2.bin",
+    "veri/site.ef52f1a90e78.3.bin",
+    "veri/site.ef52f1a90e78.4.bin",
+    "veri/site.ef52f1a90e78.5.bin",
+    "veri/site.ef52f1a90e78.6.bin",
+    "veri/site.ef52f1a90e78.7.bin",
+    "veri/site.ef52f1a90e78.8.bin",
+    "veri/site.ef52f1a90e78.9.bin",
+    "veri/site.ef52f1a90e78.10.bin",
+    "veri/site.ef52f1a90e78.11.bin",
+    "veri/site.ef52f1a90e78.12.bin",
+    "veri/site.ef52f1a90e78.13.bin",
+    "veri/site.ef52f1a90e78.14.bin",
+    "veri/site.ef52f1a90e78.15.bin",
+    "veri/site.ef52f1a90e78.16.bin",
+    "veri/site.ef52f1a90e78.17.bin"
    ]
   }
  }
