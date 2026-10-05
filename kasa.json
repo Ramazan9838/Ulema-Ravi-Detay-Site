@@ -1,6 +1,6 @@
 {
- "surum": "827dfa0",
- "guncelleme": "2026-10-05T16:21:12+00:00",
+ "surum": "376bd10",
+ "guncelleme": "2026-10-05T16:32:54+00:00",
  "yuvalar": [
   {
    "kullanici": "Admin",
@@ -11,32 +11,32 @@
  ],
  "dosyalar": {
   "site": {
-   "ozet": "0ed54ae301845a60e448e405478cb6cdd8d4047d43f65e9271ff8ec39d1eed08",
-   "boyut": 67983241,
+   "ozet": "15ee25b5317c333eb3a3aaf06e1bc5237ec82feda22557175125cc4f992c8394",
+   "boyut": 67994191,
    "parcalar": [
-    "veri/site.0ed54ae30184.0.bin",
-    "veri/site.0ed54ae30184.1.bin",
-    "veri/site.0ed54ae30184.2.bin",
-    "veri/site.0ed54ae30184.3.bin",
-    "veri/site.0ed54ae30184.4.bin",
-    "veri/site.0ed54ae30184.5.bin",
-    "veri/site.0ed54ae30184.6.bin",
-    "veri/site.0ed54ae30184.7.bin",
-    "veri/site.0ed54ae30184.8.bin",
-    "veri/site.0ed54ae30184.9.bin",
-    "veri/site.0ed54ae30184.10.bin",
-    "veri/site.0ed54ae30184.11.bin",
-    "veri/site.0ed54ae30184.12.bin",
-    "veri/site.0ed54ae30184.13.bin",
-    "veri/site.0ed54ae30184.14.bin",
-    "veri/site.0ed54ae30184.15.bin",
-    "veri/site.0ed54ae30184.16.bin",
-    "veri/site.0ed54ae30184.17.bin",
-    "veri/site.0ed54ae30184.18.bin",
-    "veri/site.0ed54ae30184.19.bin",
-    "veri/site.0ed54ae30184.20.bin",
-    "veri/site.0ed54ae30184.21.bin",
-    "veri/site.0ed54ae30184.22.bin"
+    "veri/site.15ee25b5317c.0.bin",
+    "veri/site.15ee25b5317c.1.bin",
+    "veri/site.15ee25b5317c.2.bin",
+    "veri/site.15ee25b5317c.3.bin",
+    "veri/site.15ee25b5317c.4.bin",
+    "veri/site.15ee25b5317c.5.bin",
+    "veri/site.15ee25b5317c.6.bin",
+    "veri/site.15ee25b5317c.7.bin",
+    "veri/site.15ee25b5317c.8.bin",
+    "veri/site.15ee25b5317c.9.bin",
+    "veri/site.15ee25b5317c.10.bin",
+    "veri/site.15ee25b5317c.11.bin",
+    "veri/site.15ee25b5317c.12.bin",
+    "veri/site.15ee25b5317c.13.bin",
+    "veri/site.15ee25b5317c.14.bin",
+    "veri/site.15ee25b5317c.15.bin",
+    "veri/site.15ee25b5317c.16.bin",
+    "veri/site.15ee25b5317c.17.bin",
+    "veri/site.15ee25b5317c.18.bin",
+    "veri/site.15ee25b5317c.19.bin",
+    "veri/site.15ee25b5317c.20.bin",
+    "veri/site.15ee25b5317c.21.bin",
+    "veri/site.15ee25b5317c.22.bin"
    ]
   }
  }
